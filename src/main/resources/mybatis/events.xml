@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chappy.sauna.aufguss.infrastructure.events.EventMapper">
+  <insert id="insert" parameterType="com.chappy.sauna.aufguss.domain.events.model.Event">
+    INSERT INTO events (id, name, date_time, address, capacity, booked, reservation_flg, sold_out_flg, free, created_at, updated_at) VALUES (#{id}, #{name}, #{date_time}, #{address}, #{capacity}, #{booked}, #{reservation_flg}, #{sold_out_flg}, #{free}, #{created_at}, #{updated_at})
+  </insert>
+  <select id="findAll" resultType="com.chappy.sauna.aufguss.domain.events.model.Event">
+    SELECT * FROM events
+  </select>
+  <select id="getMaxId" resultType="int">
+    SELECT MAX(id) AS max_id FROM events
+  </select>
+  <update id="update" parameterType="com.chappy.sauna.aufguss.domain.events.model.Event">
+    UPDATE events SET name=#{name} WHERE id=#{id}
+  </update>
+
+  <delete id="delete">
+    DELETE FROM events WHERE id = #{id}
+  </delete>
+</mapper>

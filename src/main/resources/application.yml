@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /aufguss
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3337/aufguss?enabledTLSProtocols=TLSv1.2
+    username: ${MYSQL_USER:aufguss-mysql}
+    password: ${MYSQL_PASS:my-secret-pw}
+
+mybatis:
+  mapper-locations: classpath*:mybatis/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+jwt:
+  public:
+    key: classpath:app.key.pub
+  private:
+    key: classpath:app.key
