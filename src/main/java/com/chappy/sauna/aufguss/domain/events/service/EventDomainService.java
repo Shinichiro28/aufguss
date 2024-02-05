@@ -35,4 +35,3 @@ public class EventDomainService {
     eventRepository.delete(id);
   }
 }
-/////
